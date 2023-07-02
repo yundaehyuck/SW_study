@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+        // 이곳에 코드를 작성합니다.
+
+    const aTag = document.createElement('a') //a태그 생성
+    const hTag = document.createElement('h1') //h1태그 생성
+
+    //a태그에 속성부여
+
+    aTag.setAttribute('href','https://www.ssafy.com') //링크 부여
+    aTag.setAttribute('onclick','return false') //클릭해도 이동못하게
+
+    //글 삽입
+    aTag.innerText = 'SSAFY'
+
+    //hTag에 aTag삽입
+    hTag.appendChild(aTag)
+
+    //body 태그 선택
+
+    const body = document.querySelector('body')
+
+    //선택한 body에 hTag 삽입
+
+    body.appendChild(hTag)
+
+  </script>
+</body>
+</html>

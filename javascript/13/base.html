@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        //form태그 생성
+
+        const formTag = document.createElement('form')
+
+        //formTag.setAttribute('action','#')
+
+        //input태그 생성
+
+        const inputTag1 = document.createElement('input')
+
+        inputTag1.setAttribute('type','text')
+        //queryselector에서는 변수명으로 select하는게 아니다
+        //input tag 구분을 위해 class를 설정함
+        inputTag1.setAttribute('class','inputdata')
+
+        const inputTag2 = document.createElement('input')
+
+        inputTag2.setAttribute('type','submit')
+        inputTag2.setAttribute('value','Add')
+
+        formTag.appendChild(inputTag1)
+        formTag.appendChild(inputTag2)
+
+        const addToDo = function (event) {
+            
+            //쓰지 않으면 form 태그가 데이터 입력받고 다른 페이지로 이동해버림
+            //그런 행동을 못하게 막는다
+            event.preventDefault() 
+
+            //class로 만든 첫번째 input태그 선택
+
+            const inputselect = document.querySelector('.inputdata')
+
+            const todo = inputselect.value
+
+            //trim():양끝 공백 제거 >> todo.trim()이 문자가 남아있다면.. 공백이 아님
+
+            if (todo.trim()) {
+                 
+                //li 만들어서 텍스트 삽입하고
+
+                const liTag = document.createElement('li')
+                liTag.innerText = todo
+                
+                //ul 태그를 찾아와서
+                const ulTag = document.querySelector('ul')
+                
+                //li태그를 삽입함
+                ulTag.appendChild(liTag)
+
+            } else {
+                alert('할 일을 입력하세요')
+            }
+            
+            //form의 input을 초기화
+            event.target.reset()
+
+        }
+
+        //ul태그 생성
+
+        const ul = document.createElement('ul')
+
+        //본문에 삽입
+
+        const body = document.querySelector('body')
+
+        body.appendChild(formTag)
+        body.appendChild(ul)
+
+        // 입력시 이벤트 발생
+
+        formTag.addEventListener('submit',addToDo)
+
+
+    </script>
+    
+</body>
+</html>

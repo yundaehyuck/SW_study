@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+
+        const body = document.querySelector('body')
+
+        //한국 영화중에 인기있는 영화
+        const popularUrl = 'https://api.themoviedb.org/3/movie/popular?api_key=ad80b4bf15ab04539de8939a1d069689&language=ko-kr'
+        
+        //제목 삽입
+
+        const h1 = document.createElement('h1')
+        h1.innerText = '인기 영화들'
+
+        //ul태그 생성
+
+        const ulTag = document.createElement('ul')
+
+        body.appendChild(h1)
+
+        body.appendChild(ulTag)
+        
+        axios.get(popularUrl)
+        .then((response) => {
+            
+            const data_list = response.data.results
+
+            const movie_list = []
+
+            for (let d of data_list){
+
+                //console.log(d)
+
+                if (d.vote_average >= 7.0) {
+
+                    movie_list.push(d.title)
+                }
+            }
+
+            for (let movie_title of movie_list) {
+
+                const ul_tag = document.querySelector('ul')
+
+                const liTag = document.createElement('li')
+
+                liTag.innerText = movie_title
+
+                ul_tag.appendChild(liTag)
+
+
+            }
+
+            
+        })
+
+    
+    </script>
+    
+</body>
+</html>

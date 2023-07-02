@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>momentum</title>
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+			background-size: cover;
+      background-position: center;
+    }
+    .parent {
+      height: 100%;
+    }
+    #time {
+      font-size: 5rem;
+			padding: 0 2rem;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+    }
+    .row {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="parent row justify-content-center align-items-center">
+    <div id="time" class="font-weight-bold text-light"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <script>
+    /* 
+      div#time의 내부 content가 매 초마다 갱신되어 
+      화면에 출력될 수 있도록 formatTime 함수를 완성하시오.
+    */
+    
+    // lodash 를 활용하여 1.jpg ~ 6.jpg 중 하나의 경로로 body의 backgroundImage url을 설정
+    // hint
+
+    //배경 이미지 경로를 담은 배열
+
+    let background_image_list = []
+
+    for(let i = 1 ; i<=6;i++){
+      //템플릿 리터럴을 위해 backtick을 사용
+      let image_path = `images/${i}.jpg`
+
+      background_image_list.push(image_path)
+
+    }
+    //body의 배경이미지 랜덤하게 하나 골라서 설정
+
+    const body = document.querySelector('body')
+    
+    //body.style.backgroundImage = "url(_.sample(background_image_list))" 이러면 안들어감
+    //_.sample(background_image_list)를 값으로 인식하는게 아니라.. 하나의 문자열로 인식해버림
+    //템플릿 리터럴을 이용해서 변수 값이 들어갈수있도록
+
+    body.style.backgroundImage = `url(${_.sample(background_image_list)})`
+
+
+    const timeDiv = document.querySelector('#time')
+    const formatTime = function () {
+      // 아래 now를 활용하여 timeDiv의 innerText를 적절하게 re-format
+      const now = new Date()
+      
+      //시간이나 분, 초가 3자리가 되는 경우.. 013이거나 2자리 02이거나.. 
+      //모든 경우에 2자리만 가져온다
+      let am_pm = ''
+      let hours = ('0'+now.getHours()).slice(-2)
+      const minute = ('0'+now.getMinutes()).slice(-2)
+      const seconds = ('0'+now.getSeconds()).slice(-2)
+
+
+      if (hours >= 12){
+
+        hours = hours - 12
+        am_pm = '오후'
+
+      } else {
+        am_pm = '오전'
+      }
+
+      const timestring = am_pm + ` ${hours}:${minute}:${seconds}`
+
+      timeDiv.innerText = timestring
+    }
+    
+    // 1초에 한번 formatTime 함수 실행
+    setInterval(formatTime, 1000)
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+
+</html>
