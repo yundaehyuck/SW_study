@@ -1,0 +1,37 @@
+.bd-search {
+
+    width:200px;
+    box-sizing: border-box;
+
+    background-color:#F0F0F0;
+}
+
+.DocSearch {
+
+    border:0px;
+}
+
+.login .btn {
+
+    border:0px;
+}
+
+.head_box {
+
+    margin-top:80px;
+}
+
+.mark {
+
+    background-color:white;
+}
+
+.list-group-item {
+
+    border:0px;
+}
+
+.follow .btn {
+
+    color:black;
+}

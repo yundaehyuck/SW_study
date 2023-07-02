@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <main class="search">
+        <h4>원하는 영화의 키워드를 입력해주세요</h4>
+        <div class="search-box">
+            <form class="keyword-form">
+                <input class="search-box__input" type="text" id="search" placeholder="검색어를 입력해주세요." autofocus>
+                <button class="search-box__button">검색</button>
+            </form>
+        </div>
+        <div class="search-result">
+        </div>
+    </main>
+
+    
+
+{% endblock %}
+
+{% block script %}
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const keywordForm = document.querySelector(".keyword-form")
+        let section = document.createElement('section')
+        const resultTag = document.querySelector('.search-result')
+        resultTag.appendChild(section)
+
+        keywordForm.addEventListener("submit", function(event) {
+            event.preventDefault()
+            const inputTag = document.querySelector('#search')
+            const keyword = inputTag.value
+            
+            if (inputTag.value === ""){
+                alert("키워드를 입력하세요.")
+                return
+            }
+
+            section.remove()
+            section = document.createElement('section')
+            resultTag.appendChild(section)
+
+            axios({
+                methods: 'get',
+                url:"{% static 'movies/movies.json' %}"
+            })
+            .then((response)=>{
+                const movieList = response.data.slice(19,)
+                const matchingMovie = []
+                let i = 0
+                for(moviedata of movieList){
+                    i++
+                    if(moviedata.fields.title.includes(keyword) || moviedata.fields.overview.includes(keyword)){
+                        const temp = {
+                            'title': moviedata.fields.title,
+                            'vote_average': moviedata.fields.vote_average,
+                            'poster_path': moviedata.fields.poster_path,
+                            'id': i
+                        }
+                        matchingMovie.push(temp)
+                    }
+                }
+
+                if (matchingMovie.length === 0){
+                    alert("매칭되는 영화가 없습니다.")
+                } else {
+                    matchingMovie.sort(function(a, b){
+                        return b.vote_average - a.vote_average
+                    })
+
+                    matchingMovie.forEach((movie)=> {
+
+                        // 정보가 담긴 구조 만들기
+                        const div = document.createElement('div')
+                        div.setAttribute('class', 'search-result__card')
+                        div.setAttribute('id', movie.id)
+                        div.innerHTML = `<img src=${movie.poster_path}>
+                        <div class="search-result__text">
+                        <h2>${movie.title}</h2>
+                        <p>${movie.vote_average}</p>
+                        </div>`
+
+                        // 정보가 담긴 구조 나타내기
+                        section.appendChild(div)
+                    })
+                }
+            })
+              .then(()=> {
+                const movieBtns = document.querySelectorAll('section > div')
+                console.log(movieBtns)
+                movieBtns.forEach((btn) => {
+                    btn.addEventListener('click', function(){
+                        location.href = `http://127.0.0.1:8000/movies/${btn.id}`
+                    })
+                })
+              })
+
+        })
+
+        
+    </script>
+{% endblock script %}

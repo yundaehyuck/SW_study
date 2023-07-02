@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>DETAIL</h1>
+    {% comment %} <img src="{{movie.poster_path}}" alt="">
+    <p><b>제목: {{movie.title}}</b></p>
+    <p><b>개봉일: {{movie.release_date}}</b></p>
+    <p><b>평점: {{movie.vote_average}}</b></p>
+    <p><b>줄거리: {{movie.overview}}</b></p> {% endcomment %}
+
+    <div class="card" style="width: 18rem; margin:auto">
+        <img src={{movie.poster_path}}  class="card-img-top" alt="">
+        <div class="card-body">
+          <h5 class="card-title">제목: {{movie.title}}</h5>
+          <p class="card-text"><p>관객수: {{movie.vote_count}}</p>
+          <p>개봉일: {{movie.release_date}}</p>
+          <p>평점: {{movie.vote_average}}</p>
+          <p>{{movie.description}}</p></p>
+        </div>
+        <a href="{% url 'movies:index' %}" class="btn btn-warning">INDEX</a>
+    </div>
+{% endblock %}

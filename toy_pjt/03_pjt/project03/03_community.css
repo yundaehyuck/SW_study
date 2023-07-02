@@ -1,0 +1,26 @@
+/* 03_community.css */
+/* 아래에 코드를 작성해 주세요. */
+
+.footer-text {
+
+    color: rgba(0, 0, 0, 0.705);
+
+    font-size:16px;
+}
+
+.list-group a {
+
+    color:#2883f3;
+}
+
+.one_row {
+
+    background-color:#ECECEC;
+}
+
+.container {
+
+    margin-top:80px;
+    margin-bottom:30px;
+
+}

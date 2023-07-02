@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>NEW</h1>
+
+<hr>
+
+<form action="{% url 'create' %}" method="POST">
+    {% csrf_token %}
+
+    <label for="title">TITLE</label>
+    <input type="text" name="title"><br>
+    <label for="audience">AUDIENCE</label>
+    <input type="text" name="audience"><br>
+    <label for="release_date">RELEASE_DATE</label>
+    <input type="date" name="release_date"><br>
+    <label for="genre">GENRE</label>
+    <select name="genre">
+        <option label="코미디" value="코미디">
+        <option label="액션" value="액션">
+        <option label="로맨스" value="로맨스">
+        <option label="범죄" value="범죄">
+        <option label="SF" value="SF">
+        <option label="스포츠" value="스포츠">
+        <option label="판타지" value="판타지">
+        <option label="전쟁" value="전쟁">
+        <option label="공포" value="공포">
+        <option label="스릴러" value="스릴러">
+        <option label="멜로" value="멜로">
+        <option label="모험" value="모험">
+        <option label="미스터리" value="미스터리">
+        <option label="재난" value="재난">
+        <option label="애니메이션" value="애니메이션">
+        </select>
+    <br>
+    <label for="score">SCORE</label>
+    <input type="text" name="score"><br>
+    <label for="poster_url">POSTER_URL</label>
+    <input type="text" name="poster_url"><br>
+    <label for="description">DESCRIPTION</label>
+    <textarea name="description" cols="30" rows="5"></textarea><br>
+    <input type="submit" value="Submit">
+</form>
+
+<hr>
+
+<a href="{% url 'index' %}">BACK</a>
+
+{% endblock content %}
+
