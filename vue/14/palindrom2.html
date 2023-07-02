@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="app">
+        <h1>회문 검사기</h1>
+        <input class="data" type="text" v-model="sequence">
+        <input class="button" type="submit" value="확인하기" v-on:click="click()">
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+        const app = new Vue({
+
+            el : '#app',
+            data : {
+                sequence : '',
+            },
+
+            methods: {
+
+                click() {
+
+                    const s = this.sequence
+
+                    if (s===''){
+                        alert('입력값이 없습니다!')
+                    } else {
+                        
+                        const len_s = (s.length)
+
+                        let find = true
+
+                        for(let i = 0; i <= parseInt(len_s/2); i++){
+
+                            if (s[i] != s[len_s-i-1]){
+                                find = false
+                                break
+                            }
+                        }
+
+                        if (find === true){
+                            alert('회문입니다!')
+                        } else {
+                            alert('회문이 아닙니다!')
+                        }
+
+
+                    }
+               }
+
+            }
+        })
+
+        
+    </script>
+</body>
+</html>
