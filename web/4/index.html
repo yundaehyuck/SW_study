@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /*자손 결합자*/
+
+        div p {
+
+            color: blue;
+        }
+        /* 자식 결합자 */
+
+        div > p {
+            color: crimson;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+
+        <!--자손 결합자는 부모 태그 하위의 해당하는 모든 태그에 css를 적용하는것으로 -->
+        <!--예를 들어 div p하면 아래 p태그 전부 적용된다.-->
+
+        <!--반면 자식 결합자는 부모 태그 바로 아래의 자식 태그들만 css를 적용하는것으로-->
+        <!--예를 들어 div > p하면 아래 첫번째 줄 p태그만 적용된다-->
+
+        <p>자식이고 자손이야</p> <!--자손 결합자 적용--> <!--자식 결합자 적용--> <!--나중에 적용되는 자식 결합자의 색 빨간색--> 
+        <span>자식이 아니야</span>
+        <span>자식이 아니야</span>
+        <span>
+            <p>자손이야</p> <!--자손 결합자 적용--> <!--파란색-->
+        </span>
+          
+            
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .board {
+
+            width: 800px;
+            height: 800px;
+
+            border: 2px solid black;
+        }
+        
+        .square_white {
+
+            width: 100px;
+            height: 100px;
+            margin-bottom: -4px;
+            background-color: white;
+            display: inline-block;
+            
+        }
+
+        .square_black {
+
+            width: 100px;
+            height: 100px;
+            margin-bottom: -4px;
+            background-color: black;
+            display: inline-block;
+            
+
+        }
+
+        .pawn {
+
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin-bottom: -4px;
+
+            background-image: url("black_pawn.png");
+            background-size: 100px 100px;
+        }
+
+        .queen {
+
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin-bottom: -4px;
+
+            background-image: url("white_queen.png");
+            background-size: 100px 100px;
+        }
+
+        .king {
+
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin-bottom: -4px;
+
+            background-color: black;
+            background-image: url("white_king.png");
+            background-size: 100px 100px;
+        }
+
+        .rook {
+
+            width: 100px;
+            height: 100px;
+            display: inline-block;
+            margin-bottom: -4px;
+
+            background-image: url("white_rook.png");
+            background-size: 100px 100px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="board">
+        <div class="square_white"></div><div class="square_black"></div><div class="square_white"></div><div class="square_black"></div><div class="square_white"></div><div class="square_black"></div><div class="square_white"></div><div class="square_black"></div>
+        <div class="square_black"></div><div class="square_white"></div><div class="square_black"></div><div class="square_white"></div><div class="square_black"></div><div class="square_white"></div><div class="square_black"></div><div class="square_white"></div>
+        <div class="square_white"></div><div class="square_black"></div><div class="square_white"></div><div class="square_black"></div><div class="square_white"></div><div class="square_black"></div><div class="square_white"></div><div class="square_black"></div>
+        <div class="square_black"></div><div class="square_white"></div><div class="square_black"></div><div class="square_white"></div><div class="square_black"></div><div class="square_white"></div><div class="square_black"></div><div class="square_white"></div>
+        <div class="pawn"></div><div class="square_black"></div><div class="square_white"></div><div class="square_black"></div><div class="square_white"></div><div class="square_black"></div><div class="square_white"></div><div class="square_black"></div>
+        <div class="square_black"></div><div class="square_white"></div><div class="square_black"></div><div class="square_white"></div><div class="square_black"></div><div class="square_white"></div><div class="square_black"></div><div class="square_white"></div>
+        <div class="square_white"></div><div class="square_black"></div><div class="square_white"></div><div class="square_black"></div><div class="square_white"></div><div class="square_black"></div><div class="square_white"></div><div class="square_black"></div>
+        <div class="square_black"></div><div class="square_white"></div><div class="square_black"></div><div class="queen"></div><div class="king"></div><div class="square_white"></div><div class="square_black"></div><div class="rook"></div>
+
+        
+    </div>
+
+    
+</body>
+</html>

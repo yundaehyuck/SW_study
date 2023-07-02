@@ -1,0 +1,40 @@
+<!-- nth-child -->
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="abc.css">
+</head>
+<body>
+<div id="hphk">
+  <h2>어떻게 선택 될까?</h2>
+  <p>첫번째 단락</p>
+  <p>두번째 단락</p>
+  <p>세번째 단락</p>
+  <p>네번째 단락</p>
+</div>
+</body>
+</html>
+<!-- nth-child(n)는 해당 태그의 부모요소를 기준으로 모든 자식 태그 요소에 대해 순서를 센다. 그래서 h2 어떻게 선택 될까?가 1번이고 p첫번째 단락이 2번, p두번째 단락이 3번,...-->
+<!-- 그리고 해당 순서 n번에 맞으면서, type이 맞아야 색이 칠해진다-->
+<!-- 그러므로 p:nth-child(2)를 하면 첫번째 단락이 파란색 칠해진다-->
+
+<!-- nth-of-type -->
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="def.css">
+</head>
+<body>
+<div id="hphk2">
+  <h2>어떻게 선택 될까?</h2>
+  <p>첫번째 단락</p>
+  <p>두번째 단락</p>
+  <p>세번째 단락</p>
+  <p>네번째 단락</p>
+</div>
+</body>
+</html>
+
+<!-- nth-of-type(n)은 해당 태그의 부모 요소를 기준으로, type이 맞은것만 순서를 센다. -->
+<!-- 그러므로 p첫번째 단락이 1번, p두번째 단락이 2번,...-->
+<!-- 따라서 p:nth-of-type(2)하면 두번째 단락이 색이 칠해진다-->

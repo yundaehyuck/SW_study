@@ -1,0 +1,111 @@
+.form {
+
+    display: flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+
+    width: 662px;
+    height: 350px;
+    border:0.5px solid rgba(99, 88, 88, 0.3);
+    box-sizing: border-box;
+    border-radius:4px;
+}
+
+
+.sign {
+
+    text-align: center;
+}
+
+.title hr {
+
+    width:658px;
+}
+
+.horizon {
+
+    width:662px;
+}
+
+
+
+.form hr {
+
+    width:658px;
+
+    background-color: rgba(0, 0, 255, 0.479);
+    height:0.5px;
+    border: 0.5px solid rgba(0, 0, 255, 0.479);
+}
+
+.red_box {
+
+    display:flex;
+    width: 630px;
+    height: 50px;
+    color:white;
+    padding-left:32px;
+    background-color:crimson;
+    align-items:center;
+
+}
+
+.title {
+
+    font-size: 28px;
+}
+
+.btn {
+
+    background-color:green;
+    color: white;
+    font-size:16px;
+    width: 634px;
+    padding-left:8px;
+    height:40px;
+    border: initial;
+    border-radius:4px;
+}
+
+.form-check {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    font-weight:lighter;
+}
+
+.remember {
+
+    display:flex;
+    justify-content:start;
+    padding-left:8px;
+}
+
+.mb-3 {
+
+    padding-left:8px;
+}
+
+.mb-3 .form-control {
+
+    width:630px;
+
+    border:0.5px solid rgba(99, 88, 88, 0.3);
+
+    height:40px;
+    border-radius:4px;
+}
+
+.btn_box {
+
+    padding-left:8px;
+}
+
+.forgot_pass {
+
+    padding-right:10px;
+    text-decoration:none;
+    font-weight:lighter;
+}
