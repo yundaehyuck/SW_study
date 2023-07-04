@@ -1,0 +1,9 @@
+article = Article()
+
+article.title = 'first'
+
+article.content = 'django!'
+
+article.save()
+
+Article.objects.all()
