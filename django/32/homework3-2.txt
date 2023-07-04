@@ -1,0 +1,27 @@
+##레코드 만드는 명령
+
+#1번째
+
+article = Article()
+article.title = 'first'
+article.content = 'django!'
+article.save()
+
+#2번째
+
+article = Article(title='second', content='django!')
+article.save()
+
+#3번째
+Article.objects.create(title='third',content='django!')
+
+
+##migration
+
+#migration 파일 생성
+
+$python manage.py makemigrations
+
+#DB동기화
+
+$python manage.py migrate

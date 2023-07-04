@@ -1,0 +1,12 @@
+##django 설치
+$pip install django==3.2.13
+
+#django 프로젝트 만들기
+$django-admin startproject my_pjt .
+
+#앱 만들기
+$python manage.py startapp my_app
+
+#서버 실행
+$python manage.py runserver
+
